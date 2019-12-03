@@ -1,5 +1,6 @@
 export interface Task {
-  stop: any;
-  start: number;
+    //initializing variables
+    stop: any;
+    start: number;
     name:string;
 }

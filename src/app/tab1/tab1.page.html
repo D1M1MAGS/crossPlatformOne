@@ -7,15 +7,18 @@
 </ion-header>
 
 <ion-content>
+  <!-- id for the form-->
   <form id="trackerForm" [formGroup]="taskForm" >
     <ion-list>
       <ion-list-header>
         Track a task
       </ion-list-header>
       <ion-item>
+        <!-- prompt for the user-->
         <ion-input name="taskName" placeholder="Enter name of task/goal" type="text" formControlName="name" >
         </ion-input>
       </ion-item>
+      <!-- added disabled feature when nothing is entered into the taskform-->
       <ion-button expand="full" color="tertiary" *ngIf="!started" (click)="save()" [disabled]="!taskForm.valid"> Add to List </ion-button>
 
     </ion-list>
