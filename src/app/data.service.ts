@@ -19,10 +19,14 @@ export class DataService {
   }
 
   addToGoalsList( task:Task ) {
+
+    new Date().getTime();
+
     this.taskList.push( task );
-    this.list$.next( this.taskList );
+    this.list$.next( this.taskList);
     this.sortGoals();
     this.updateGoals();
+    alert (`New item has been added!`);
   }
 
   disperseItems( id:number ) {
