@@ -26,7 +26,6 @@ export class DataService {
     this.list$.next( this.taskList);
     this.sortGoals();
     this.updateGoals();
-    alert (`New item has been added!`);
   }
 
   disperseItems( id:number ) {
