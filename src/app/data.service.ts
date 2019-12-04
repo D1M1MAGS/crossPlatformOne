@@ -31,13 +31,16 @@ export class DataService {
 
   disperseItems( id:number ) {
     this.taskList.forEach( (task:Task, index ) => {
-      if( task.start == id ) {
+      if( task.created == id ) {
         this.taskList.splice( index, 1 );
       }
     });
     this.list$.next( this.taskList );
     this.updateGoals();
+    
   }
+
+
 
   updateGoals() {
     let data = JSON.stringify( this.taskList );
@@ -50,6 +53,7 @@ export class DataService {
     catch( exc ) {
       console.log( exc );
     }
+    this.list$.next( this.taskList );
   }
 
   loadGoals() {
@@ -66,7 +70,7 @@ export class DataService {
 
   sortGoals(){
     this.taskList.sort( (task1:Task, task2:Task ) => {
-      return task2.stop - task1.stop;
+      return task2.created - task1.created;
     })
   }
 }

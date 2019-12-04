@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 export class Tab1Page implements OnInit {
 
   taskForm:FormGroup;
-  startTime: number;
+  timeCreated: number;
   stopTime: number;
   
   constructor(
@@ -30,12 +30,11 @@ export class Tab1Page implements OnInit {
   save(){
     let task:Task = {
       name: this.taskForm.get('name').value,
-      start: this.startTime,
-      stop: this.stopTime
+      created: new Date().getTime(),
+      status: false
     }
     this.dataService.addToGoalsList(task);
     this.taskForm.reset();
   }
-
 
 }
