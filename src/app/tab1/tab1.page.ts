@@ -14,7 +14,6 @@ export class Tab1Page implements OnInit {
 
   taskForm:FormGroup;
   timeCreated: number;
-  stopTime: number;
   
   constructor(
     private formBuilder:FormBuilder,
