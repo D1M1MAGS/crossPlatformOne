@@ -11,7 +11,7 @@
     <ion-item *ngFor="let item of history">
       <ion-grid>
         <ion-row>
-          <ion-col>
+          <ion-col> 
             <ion-label>{{item.name}}</ion-label>
           </ion-col>
         </ion-row>
@@ -21,6 +21,7 @@
             <ion-checkbox [checked]="item.status" (click)="changeItemStatus(item.created)"> </ion-checkbox>
           </ion-col>
           <ion-col size="8">
+            <!-- grabs the current date and time -->
             <ion-note>Created at {{item.created | date: 'dd/MM/yy h:mm:ss' }}</ion-note>
           </ion-col>
           <ion-col size="1">

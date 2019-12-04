@@ -1,3 +1,4 @@
+//import
 import { Component } from '@angular/core';
 import { Task } from '../models/task.interface';
 import { Subscription} from 'rxjs';
@@ -10,6 +11,7 @@ import { isNgTemplate } from '@angular/compiler';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
+
 export class Tab2Page {
 
   history:Array<Task> = [];
@@ -19,20 +21,25 @@ export class Tab2Page {
     private dataService:DataService
   ) {}
 
+  //grabs all history data
   ngOnInit(){
     this.historySub = this.dataService.list$.subscribe( taskData => this.history = taskData);
   }
 
+//deletes items and updates db
   disperseItems(itemStart: number){
     this.dataService.disperseItems(itemStart);
   }
 
+  //changes status of a task and updates db
   changeItemStatus(id:number){
     this.dataService.taskList.forEach((tasks)=>{
       if(tasks.created == id){
         tasks.status = true;
       }
     });
+
+    //updates/refreshes the task list
     this.dataService.updateGoals();
     
   }
